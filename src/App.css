@@ -110,6 +110,19 @@ button:hover {
   background-color: #ccd6f6;
 }
 @media screen and (max-width: 900px) {
+  .information{
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar{
+    text-align: center;
+  }
+  .nav-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
   .navbar button, .navbar .options {
       display: none;
   }

@@ -26,31 +26,47 @@ class Navbar extends React.Component {
   //UI
   render() {
     return (
-      <div className="navbar" id="navbar">
-        <button id="random" onClick={() => this.props.newArray()}>
-          Random Array
-        </button>
-
-        {/* //prop drilling onChange */}
-        {
-          <Algorithms
-            onChange={this.props.onChange}
-            algorithms={this.state.Algorithms}
-          />
-        }
-        <Size onChange={this.props.onChange} lengths={this.state.lengths} />
-        <Speeds onChange={this.props.onChange} speeds={this.state.speeds} />
-        <button id="start" onClick={() => this.props.start()}>
-          Start Visualizing
-        </button>
-        {this.props.algoNumber === 5 ? (
-          <button id="random" onClick={() => this.props.generateSortedArray()}>
-            Sorted Array
+      <div
+        className="navbar"
+        id="navbar"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+        }}
+      >
+        <h2 style={{ display: 'block', color: 'whitesmoke' }}>
+          Sorting Visualizer -{'>'}
+        </h2>
+        <section className="nav-section">
+          <button id="random" onClick={() => this.props.newArray()}>
+            Random Array
           </button>
-        ) : null}
-        <a className="icon" onClick={(e) => this.handleClick(e)} href="/">
-          <i className="fa fa-bars"></i>
-        </a>
+
+          {/* //prop drilling onChange */}
+          {
+            <Algorithms
+              onChange={this.props.onChange}
+              algorithms={this.state.Algorithms}
+            />
+          }
+          <Size onChange={this.props.onChange} lengths={this.state.lengths} />
+          <Speeds onChange={this.props.onChange} speeds={this.state.speeds} />
+          <button id="start" onClick={() => this.props.start()}>
+            Start Visualizing
+          </button>
+          {this.props.algoNumber === 5 ? (
+            <button
+              id="random"
+              onClick={() => this.props.generateSortedArray()}
+            >
+              Sorted Array
+            </button>
+          ) : null}
+          <a className="icon" onClick={(e) => this.handleClick(e)} href="/">
+            <i className="fa fa-bars"></i>
+          </a>
+        </section>
       </div>
     );
   }

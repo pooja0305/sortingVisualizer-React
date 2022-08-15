@@ -13,11 +13,11 @@ const Code = ({ algoNumber }) => {
   };
   const languages = ['Java', 'C++', 'C', 'JS', 'Python'];
   return (
-    <div className="code">
-      <div className="program">
+    <span className="code">
+      <span className="program">
         <span className="options">
           {algoNumber === 0 ? (
-            <h1>Hello</h1>
+            <h1>Hello Programmer</h1>
           ) : (
             languages.map((lang, index) => {
               return (
@@ -29,8 +29,8 @@ const Code = ({ algoNumber }) => {
           )}
         </span>
         <pre>{code}</pre>
-      </div>
-    </div>
+      </span>
+    </span>
   );
 };
 
