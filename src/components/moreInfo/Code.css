@@ -1,0 +1,5 @@
+.code{
+    flex: 3;
+    margin-left: 1vmin;
+    border: 2px solid red;
+}

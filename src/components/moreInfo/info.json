@@ -1,0 +1,77 @@
+[
+    {
+        "name":"Please Select The Sorting Algorithm,Size and Speed",
+        "desc":null,
+        "timeComplexity":null,
+        "auxiliarySpace":null,
+        "worstCase":null,
+        "bestCase":null,
+        "improvisation":null,
+        "stable":null,
+        "inPlace":null,
+        "code":null
+    },{
+        "name":"Bubble Sort",
+        "desc":"Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.",
+        "timeComplexity":"O(N^2)",
+        "auxiliarySpace":"O(1)",
+        "worstCase":"The worst-case condition for bubble sort occurs when elements of the array are arranged in decreasing order. In the worst case, the total number of iterations or passes required to sort a given array is (n-1). where n is a number of elements present in the array.",
+        "bestCase":"When the array is sorted in ascending order we can modify the Bubble Sort and the complexity reduces down to O(n)",
+        "improvisation":"Possible : Can modify the algorithm and reduces complexity",
+        "stable":"Yes!",
+        "inPlace":"Yes!"
+    },{
+        "name":"Selection Sort",
+        "desc":"The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. The algorithm maintains two sub-arrays in a given array. (a)The subarray which is already sorted. (b)Remaining subarray which is unsorted.",
+        "timeComplexity":"O(N^2)",
+        "auxiliarySpace":"O(1)",
+        "worstCase":null,
+        "bestCase":null,
+        "stable":"Nope",
+        "improvisation":"Nope",
+        "inPlace":"Yes!"
+    }
+    ,{
+        "name":"Selection Sort",
+        "desc":"Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.",
+        "timeComplexity":"O(N^2)",
+        "auxiliarySpace":"O(1)",
+        "bestCase":"Insertion sort is used when number of elements is small. It can also be useful when input array is almost sorted, only few elements are misplaced in complete big array.",
+        "worstCase":"When array is in descending order",
+        "improvisation":"Possible-We can use binary search to reduce the number of comparisons in normal insertion sort.",
+        "stable":"Yes!",
+        "inPlace":"Yes!"
+    },{
+        "name":"Merge Sort",
+        "desc":"The Merge Sort algorithm is a sorting algorithm that is considered an example of the divide and conquer strategy. So, in this algorithm, the array is initially divided into two equal halves and then they are combined in a sorted manner. We can think of it as a recursive algorithm that continuously splits the array in half until it cannot be further divided. This means that if the array becomes empty or has only one element left, the dividing will stop, i.e. it is the base case to stop the recursion. If the array has multiple elements, we split the array into halves and recursively invoke the merge sort on each of the halves. Finally, when both the halves are sorted, the merge operation is applied. Merge operation is the process of taking two smaller sorted arrays and combining them to eventually make a larger one.",
+        "timeComplexity":"O(N*log(N)",
+        "auxiliarySpace":"O(n)+ASS(auxiliary stack space)",
+        "bestCase":null,
+        "worstCase":null,
+        "improvisation":"Possible : Can modify the algorithm and reduces space complexity and make it in place",
+        "stable":"Nope- Not in typical implementation But Possible",
+        "inPlace":"Yes!"
+    }
+    ,{
+        "name":"Quick Sort",
+        "desc":"Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as a pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.",
+        "timeComplexity":"O(N*log(N)",
+        "auxiliarySpace":"O(1)+ASS(auxiliary stack space)",
+        "bestCase":"The best case occurs when the partition process always picks the middle element as the pivot. The following is recurrence for the best case.",
+        "worstCase":"The worst case occurs when the partition process always picks the greatest or smallest element as the pivot. If we consider the above partition strategy where the last element is always picked as a pivot, the worst case would occur when the array is already sorted in increasing or decreasing order.",
+        "improvisation":"Possible : We can change our selection of pivot element to improvise the time complexity. Also In 3 Way QuickSort, an array is divided in 3 parts to improve complexity",
+        "stable":"Nope-The default implementation is not stable. However any sorting algorithm can be made stable by considering indexes as comparison parameter. ",
+        "inPlace":"Yes!-As per the broad definition of in-place algorithm it qualifies as an in-place sorting algorithm as it uses extra space only for storing recursive function calls but not for manipulating the input."
+        }
+        ,{
+            "name":"Heap Sort",
+            "desc":" Heap sort processes the elements by creating the min-heap or max-heap using the elements of the given array. Min-heap or max-heap represents the ordering of array in which the root element represents the minimum or maximum element of the array.",
+            "timeComplexity":"O(N*log(N)",
+            "auxiliarySpace":"O(1)",
+            "bestCase":null,
+            "worstCase":null,
+            "improvisation":"Possible : Instead of recursive heapify function we can use iterative one. This eliminates the ASS(auxiliary stack space) which recursion take place",
+            "stable":"Nope-Heap sort algorithm is not a stable algorithm. This algorithm is not stable because the operations that are performed in a heap can change the relative ordering of the equivalent keys.",
+            "inPlace":"Yes!-Heap sort is an in-place algorithm."
+        }
+]
