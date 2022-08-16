@@ -1,11 +1,11 @@
 import './App.css';
-import Visualizer from './components/Visualizer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Navigation from './components/Navigation';
 function App() {
   return (
     <>
       <Router>
-        <Visualizer />
+        <Navigation />
       </Router>
     </>
   );

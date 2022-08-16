@@ -2,6 +2,7 @@ import React from 'react';
 import Algorithms from './NavbarComponents/Algorithms';
 import Speeds from './NavbarComponents/Speeds';
 import Size from './NavbarComponents/Size';
+import { Link } from 'react-router-dom';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -35,9 +36,11 @@ class Navbar extends React.Component {
           alignItems: 'center',
         }}
       >
-        <h2 style={{ display: 'block', color: 'whitesmoke' }}>
-          Sorting Visualizer -{'>'}
-        </h2>
+        <Link to="/">
+          <h2 style={{ display: 'block', color: 'whitesmoke' }}>
+            Sorting Visualizer -{'>'}
+          </h2>
+        </Link>
         <section className="nav-section">
           <button id="random" onClick={() => this.props.newArray()}>
             Random Array
@@ -46,6 +49,7 @@ class Navbar extends React.Component {
           {/* //prop drilling onChange */}
           {
             <Algorithms
+              algoNumber={this.props.algoNumber}
               onChange={this.props.onChange}
               algorithms={this.state.Algorithms}
             />

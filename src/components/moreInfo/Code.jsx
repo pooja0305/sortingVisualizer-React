@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { allCodes } from './AllCode';
 import './Code.css';
 const Code = ({ algoNumber }) => {
-  useEffect(() => {
-    setCode('');
-  }, [algoNumber]);
   const [code, setCode] = useState('');
+
   const handleClick = (index) => {
     setCode(() => {
+      console.log(allCodes[algoNumber][index].code);
       setCode(allCodes[algoNumber][index].code);
     });
   };

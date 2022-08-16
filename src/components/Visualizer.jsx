@@ -22,7 +22,7 @@ import heapSort from './algorithms/heapSort.js';
 import insertionSort from './algorithms/insertionSort.js';
 import mergeSort from './algorithms/mergeSort.js';
 import quickSort from './algorithms/quickSort.js';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 class Visualizer extends React.Component {
   constructor(props) {
     super(props);
@@ -42,6 +42,8 @@ class Visualizer extends React.Component {
     //this will be called when the component gets loaded on the UI
 
     //we need to generate our array when the component gets mounted so
+    console.log(this.props.algoNumber);
+    this.onChange(this.props.algoNumber, ALGORITHM);
     this.generateRandomArray();
   };
   /* for hooking to the time instant of any change in state/event */
@@ -239,7 +241,7 @@ class Visualizer extends React.Component {
             element={
               <>
                 <Navbar
-                  algoNumber={this.state.algorithm}
+                  algoNumber={this.props.algoNumber}
                   generateSortedArray={this.generateSortedArray}
                   start={this.start}
                   response={this.response}
