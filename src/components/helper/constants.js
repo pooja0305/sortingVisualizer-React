@@ -12,3 +12,6 @@ export const SIZE = 'size';
 export const CURRENT = 1;
 export const NORMAL = 0;
 export const DONE = 2;
+
+//to get to know whether custom input is asked or not
+export const CUSTOM = 'Custom Input ?';

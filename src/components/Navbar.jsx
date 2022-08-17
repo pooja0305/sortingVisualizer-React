@@ -3,6 +3,7 @@ import Algorithms from './NavbarComponents/Algorithms';
 import Speeds from './NavbarComponents/Speeds';
 import Size from './NavbarComponents/Size';
 import { Link } from 'react-router-dom';
+import { CUSTOM } from './helper/constants';
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ class Navbar extends React.Component {
         { value: 5, type: 'Quick Sort' },
         { value: 6, type: 'Heap Sort' },
       ],
-      lengths: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], //size of the array
+      lengths: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, CUSTOM], //size of the array
       speeds: [0.0, 0.5, 0.75, 1.0, 1.5, 2.0, 4.0, 8.0],
     };
   }
@@ -37,11 +38,11 @@ class Navbar extends React.Component {
         }}
       >
         <Link to="/">
-          <h2 style={{ display: 'block', color: 'whitesmoke' }}>
+          <h2 style={{ display: 'block', color: 'whitesmoke', flex: '1' }}>
             Sorting Visualizer -{'>'}
           </h2>
         </Link>
-        <section className="nav-section">
+        <section className="nav-section" flex="3">
           <button id="random" onClick={() => this.props.newArray()}>
             Random Array
           </button>

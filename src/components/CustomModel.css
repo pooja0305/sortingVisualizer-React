@@ -1,0 +1,32 @@
+.custom-model{
+    padding: 1vmin;
+    border:10px solid red;
+    width: 50vw;
+}
+.header-model{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vmin;
+}
+.header-model>span{
+    cursor: pointer;
+    font-size: x-large;
+}
+textarea{
+    max-width: 90%;
+    padding: 1vmin;
+    margin: 1vmin;
+}
+.control-buttons{
+    display: flex;
+    padding: 1vmin;
+    justify-content: space-between  ;
+}
+.g-signin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}

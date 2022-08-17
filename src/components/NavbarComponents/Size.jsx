@@ -8,7 +8,7 @@ const Size = (props) => {
         name="size"
         id="menu"
         className="size-menu"
-        onChange={(e) => props.onChange(parseInt(e.target.value), SIZE)}
+        onChange={(e) => props.onChange(e.target.value, SIZE)}
       >
         {props.lengths.map((element) => (
           <option key={10 * element} value={element}>

@@ -11,6 +11,7 @@ import {
   CURRENT,
   NORMAL,
   DONE,
+  CUSTOM,
 } from './helper/constants';
 import Frame from './Frame';
 import Code from './moreInfo/Code';
@@ -23,6 +24,8 @@ import insertionSort from './algorithms/insertionSort.js';
 import mergeSort from './algorithms/mergeSort.js';
 import quickSort from './algorithms/quickSort.js';
 import { Routes, Route } from 'react-router-dom';
+import CustomModel from './CustomModel';
+// import Login from './Login';
 class Visualizer extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +37,7 @@ class Visualizer extends React.Component {
       speed: 0, //change the speed in it visualizes
       algorithm: 0, //which sorting algo is currently being selected
       running: false, //whether the algo is visualizing or not
+      custom: false, //whether custom input is given or not
     };
   }
   //when the Visualizer component gets mounted on the screen we need to generate an array
@@ -84,24 +88,47 @@ class Visualizer extends React.Component {
       });
     }
     if (option === SIZE && !this.state.running) {
-      this.setState(
-        {
-          size: Number(value),
-        },
-        () => {
-          this.setState({
-            array: generator(this.state.size),
-          });
-        }
-      );
+      if (value === CUSTOM) {
+        this.setState({
+          custom: true,
+        });
+      } else {
+        this.setState(
+          {
+            size: parseFloat(value),
+            custom: false,
+          },
+          () => {
+            this.setState({
+              array: generator(this.state.size),
+            });
+          }
+        );
+      }
     }
   };
+  closeCustomMode = () => {
+    this.setState({
+      custom: false,
+    });
+  };
   //select the algo and start the visualizing process
-  start = async (algoNumber) => {
+  start = async (algoNumber, customArr) => {
+    if (customArr) {
+      this.setState({
+        algorithm: algoNumber,
+        array: customArr,
+        size: customArr.length,
+      });
+    }
     this.lock(true); //don't change the state now
-    const moves = await this.getMoves(algoNumber || this.state.algorithm); //get down all the steps/moves which happens in the algo process
+    const moves = await this.getMoves(
+      parseInt(algoNumber || this.state.algorithm),
+      customArr
+    ); //get down all the steps/moves which happens in the algo process
     // console.log(moves); moves is either a 3d or 4d array
     //once u get it then show each move in moves
+    console.log(moves);
     await this.visualizeMoves(moves);
     await this.done();
     this.lock(false);
@@ -118,9 +145,14 @@ class Visualizer extends React.Component {
     await this.updateElementClass(indexes, DONE);
   };
   // get moves for corresponding algorithms
-  getMoves = async (Name) => {
-    let moves = [];
-    let array = await getKeysCopy(this.state.array, this.state.size);
+  getMoves = async (Name, customArr) => {
+    let moves = [],
+      array = [];
+    console.log(customArr);
+    if (customArr) {
+      array = await getKeysCopy(customArr, customArr.length);
+    } else array = await getKeysCopy(this.state.array, this.state.size);
+    console.log(array);
     if (Name === 1) {
       moves = await bubbleSort(array, array.length);
     }
@@ -139,6 +171,7 @@ class Visualizer extends React.Component {
     if (Name === 6) {
       moves = await heapSort(array, array.length);
     }
+    console.log(moves);
     return moves;
   };
   visualizeMoves = async (moves) => {
@@ -248,6 +281,13 @@ class Visualizer extends React.Component {
                   newArray={this.generateNewRandomArray}
                   onChange={this.onChange}
                   disabled={false}
+                />
+                <CustomModel
+                  start={this.start}
+                  algoNumber={this.state.algorithm}
+                  onChange={this.onChange}
+                  closeCustomMode={this.closeCustomMode}
+                  display={this.state.custom}
                 />
                 <Frame array={this.state.array} />
                 <section className="information">
